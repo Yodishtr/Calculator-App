@@ -18,6 +18,17 @@ public class ComplexPresenter implements ComplexOutputBoundary {
 
     @Override
     public void prepareSuccessView(ComplexOutputData outputData) {
+        final ComplexState complexState = complexViewModel.getState();
+        final String expression = outputData.getExpressionInput();
+        final String result = outputData.getWordValue();
+        complexState.setExpressionToCalculate(expression);
+        complexState.setExpressionToDisplay(result);
+        complexState.setIsResultDisplayed(true);
+        complexViewModel.setState(complexState);
+        complexViewModel.firePropertyChanged();
+
+        viewManagerModel.setState(complexViewModel.getViewName());
+        viewManagerModel.firePropertyChanged();
 
     }
 

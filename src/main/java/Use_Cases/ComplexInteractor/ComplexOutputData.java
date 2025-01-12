@@ -8,14 +8,14 @@ import java.math.BigDecimal;
 public class ComplexOutputData {
     private final BigDecimal numericalValue;
     private final String wordValue;
-    private final String expression;
+    private String expressionInput;
     private boolean usecaseFailed;
 
-    public ComplexOutputData(BigDecimal numericalValue, String wordValue, String expression, boolean usecaseFailed) {
+    public ComplexOutputData(BigDecimal numericalValue, String wordValue, String expressionInput, boolean usecaseFailed) {
         this.numericalValue = numericalValue;
         this.wordValue = wordValue;
         this.usecaseFailed = usecaseFailed;
-        this.expression = expression;
+        this.expressionInput = expressionInput;
     }
 
     public BigDecimal getNumericalValue() {
@@ -32,5 +32,13 @@ public class ComplexOutputData {
 
     public void setUsecaseFailed(boolean usecaseFailed) {
         this.usecaseFailed = usecaseFailed;
+    }
+
+    public String getExpressionInput() {
+        return expressionInput;
+    }
+
+    public void setExpressionInput(String expression) {
+        this.expressionInput = expression;
     }
 }
