@@ -49,13 +49,11 @@ public class Expression {
      */
     public boolean validateInput() {
         if (input.isEmpty()) {
-            throw new IllegalArgumentException("Input cannot be empty.");
             return false;
         }
-
         if (!input.matches("[0-9+\\-*/(). ]+")) {
             throw new IllegalArgumentException("Input contains invalid characters.");
-            return false
+            return false;
         }
         ArrayList<String> processedExpression = reformat(input);
         int lastElementIndex = processedExpression.size() - 1;

@@ -28,6 +28,7 @@ public class ComplexInteractor implements ComplexInputBoundary {
         if (expression.get(0) == "invalid input"){
             complexOutputBoundary.prepareFailView(expression.getFirst());
         }
+        // add an else-if statement so interactor handles literal as well.
         else {
 
             // division operation since it is highest precedence

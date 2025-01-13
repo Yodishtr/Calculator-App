@@ -9,14 +9,14 @@ import main.java.Use_Cases.ComplexInteractor.ComplexInteractor;
  */
 public class ComplexController {
 
-    private final ComplexInputBoundary complexInputBoundary;
+    private final ComplexInputBoundary complexInteractor;
 
-    public ComplexController(ComplexInputBoundary complexInputBoundary) {
-        this.complexInputBoundary = complexInputBoundary;
+    public ComplexController(ComplexInputBoundary complexInteractor) {
+        this.complexInteractor = complexInteractor;
     }
 
     public void enactCalculation(String inputExpression){
         final ComplexInputData complexInputData = new ComplexInputData(inputExpression);
-         complexInputBoundary.calculate(complexInputData);
+         complexInteractor.calculate(complexInputData);
     }
 }
