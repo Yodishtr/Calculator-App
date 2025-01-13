@@ -34,6 +34,12 @@ public class ComplexPresenter implements ComplexOutputBoundary {
 
     @Override
     public void prepareFailView(String errorMessage) {
+        final ComplexState complexState = complexViewModel.getState();
+        complexState.setExpressionToCalculate("");
+        complexState.setExpressionToDisplay(errorMessage);
+        complexState.setIsResultDisplayed(false);
+        complexViewModel.setState(complexState);
+        complexViewModel.firePropertyChanged();
 
     }
 }

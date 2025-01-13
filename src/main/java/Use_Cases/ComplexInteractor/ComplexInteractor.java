@@ -11,13 +11,11 @@ import java.util.Map;
  * Complex Expression calculation use case
  */
 public class ComplexInteractor implements ComplexInputBoundary {
-    private final ComplexDataAccessInterface complexDataAccessInterface;
+
     private final ComplexOutputBoundary complexOutputBoundary;
 
 
-    public ComplexInteractor(ComplexDataAccessInterface complexDataAccessInterface,
-                             ComplexOutputBoundary complexOutputBoundary) {
-        this.complexDataAccessInterface = complexDataAccessInterface;
+    public ComplexInteractor(ComplexOutputBoundary complexOutputBoundary) {
         this.complexOutputBoundary = complexOutputBoundary;
     }
 
@@ -29,6 +27,14 @@ public class ComplexInteractor implements ComplexInputBoundary {
             complexOutputBoundary.prepareFailView(expression.getFirst());
         }
         // add an else-if statement so interactor handles literal as well.
+        else if (expression.size() == 1){
+            String literalResult = expression.getFirst();
+            BigDecimal numValue = new BigDecimal(literalResult);
+            final ComplexOutputData outputValue = new ComplexOutputData(numValue, literalResult,
+                    calculationInput, false);
+            complexOutputBoundary.prepareSuccessView(outputValue);
+
+        }
         else {
 
             // division operation since it is highest precedence

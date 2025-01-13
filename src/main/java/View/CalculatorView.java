@@ -1,0 +1,113 @@
+package main.java.View;
+
+import main.java.Interface_Adapters.ComplexCalculation.ComplexController;
+import main.java.Interface_Adapters.ComplexCalculation.ComplexState;
+import main.java.Interface_Adapters.ComplexCalculation.ComplexViewModel;
+import main.java.Interface_Adapters.ViewManagerModel;
+
+import javax.swing.*;
+import javax.swing.plaf.basic.BasicOptionPaneUI;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class CalculatorView extends JPanel implements ActionListener, PropertyChangeListener {
+    private final String viewName = "calculator";
+    private final JTextField input;
+    private final ComplexViewModel complexViewModel;
+    private final ComplexController complexController;
+    private final ViewManagerModel viewManagerModel;
+
+
+    public CalculatorView(ComplexViewModel complexViewModel, ViewManagerModel viewManagerModel,
+                          ComplexController complexController) {
+        this.complexViewModel = complexViewModel;
+        this.viewManagerModel = viewManagerModel;
+        this.complexController = complexController;
+
+
+        complexViewModel.addPropertyChangeListener(this);
+
+
+
+        setLayout(new BorderLayout());
+
+        input = new JTextField();
+        input.setEditable(false);
+        input.setFont(new Font("Arial", Font.BOLD, 24));
+        input.setHorizontalAlignment(SwingConstants.RIGHT);
+        add(input, BorderLayout.NORTH);
+
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(4, 4));
+
+        String[] buttons = {"7", "8", "9", " + ", "4", "5", "6", " - ", "1", "2", "3", " * ", "C", "0", "=", " / "};
+        for (String button : buttons){
+            JButton calculatorButton = new JButton(button);
+            calculatorButton.setFont(new Font("Arial", Font.BOLD, 20));
+            calculatorButton.addActionListener(evt -> handleButtonPress(evt));
+            buttonPanel.add(calculatorButton);
+        }
+        add(buttonPanel, BorderLayout.CENTER);
+
+
+
+    }
+
+    private void handleButtonPress(ActionEvent evt) {
+        String command = evt.getActionCommand();
+
+        if (command.equals("C")){
+            complexViewModel.setState(new ComplexState());
+        } else if(command.equals("=")){
+            String expression = complexViewModel.getState().getExpressionToCalculate();
+            complexController.enactCalculation(expression);
+        } else{
+            ComplexState complexState = complexViewModel.getState();
+            String updatedExpression = complexState.getExpressionToCalculate() + command;
+            complexViewModel.setState(new ComplexState(updatedExpression, updatedExpression, false));
+        }
+    }
+
+    /**
+     * Reacts to property changes in the view model.
+     *
+     * @param evt the PropertyChangeEvent
+     */
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        final ComplexState state = (ComplexState) evt.getNewValue();
+        updateDisplay(state);
+
+    }
+
+
+    /**
+     * Updates the display field with the current state.
+     *
+     * @param state the current ComplexState
+     */
+    private void updateDisplay(ComplexState state) {
+        if (state.getIsResultDisplayed()) {
+            input.setText(state.getExpressionToDisplay());
+        } else if (!state.getExpressionToDisplay().isEmpty()) {
+            input.setText(state.getExpressionToDisplay());
+        } else {
+            input.setText("");
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent evt) {
+        System.out.println("Button pressed: " + evt.getActionCommand());
+    }
+
+    public String getViewName(){
+        return viewName;
+    }
+
+
+}

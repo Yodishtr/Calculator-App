@@ -5,7 +5,7 @@ import main.java.Interface_Adapters.ViewModel;
 public class ComplexViewModel extends ViewModel<ComplexState> {
 
     public ComplexViewModel() {
-        super("complex calculation");
+        super("calculator");
         setState((new ComplexState()));
     }
 }

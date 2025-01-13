@@ -20,6 +20,10 @@ public class ComplexState {
         this.isResultDisplayed = false;
     }
 
+    public ComplexState(String expressionToCalculate){
+        this.expressionToCalculate = expressionToCalculate;
+    }
+
     public String getExpressionToCalculate() {
         return expressionToCalculate;
     }

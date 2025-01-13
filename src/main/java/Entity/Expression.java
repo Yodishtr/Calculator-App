@@ -52,8 +52,8 @@ public class Expression {
             return false;
         }
         if (!input.matches("[0-9+\\-*/(). ]+")) {
-            throw new IllegalArgumentException("Input contains invalid characters.");
             return false;
+
         }
         ArrayList<String> processedExpression = reformat(input);
         int lastElementIndex = processedExpression.size() - 1;
@@ -61,7 +61,7 @@ public class Expression {
                 || processedExpression.get(lastElementIndex).equals("-")
                 || processedExpression.get(lastElementIndex).equals("*")
                 || processedExpression.get(lastElementIndex).equals("/")) {
-            throw new IllegalArgumentException("Input ends with invalid characters.");
+
             return false;
         }
         return true;
