@@ -6,6 +6,7 @@ import main.java.Interface_Adapters.ComplexCalculation.ComplexViewModel;
 import main.java.Interface_Adapters.ViewManagerModel;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -32,6 +33,7 @@ public class CalculatorView extends JPanel implements ActionListener, PropertyCh
 
 
 
+
         setLayout(new BorderLayout());
 
         input = new JTextField();
@@ -42,13 +44,21 @@ public class CalculatorView extends JPanel implements ActionListener, PropertyCh
 
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(4, 4));
+        buttonPanel.setLayout(new GridLayout(4, 4, 10, 10));
+
+        buttonPanel.setBackground(Color.BLACK);
 
         String[] buttons = {"7", "8", "9", " + ", "4", "5", "6", " - ", "1", "2", "3", " * ", "C", "0", "=", " / "};
         for (String button : buttons){
             JButton calculatorButton = new JButton(button);
+
             calculatorButton.setFont(new Font("Arial", Font.BOLD, 20));
-            calculatorButton.addActionListener(evt -> handleButtonPress(evt));
+            calculatorButton.addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    handleButtonPress(e);
+                }
+            });
             buttonPanel.add(calculatorButton);
         }
         add(buttonPanel, BorderLayout.CENTER);
@@ -60,14 +70,17 @@ public class CalculatorView extends JPanel implements ActionListener, PropertyCh
     private void handleButtonPress(ActionEvent evt) {
         String command = evt.getActionCommand();
 
+
         if (command.equals("C")){
             complexViewModel.setState(new ComplexState());
         } else if(command.equals("=")){
             String expression = complexViewModel.getState().getExpressionToCalculate();
+
             complexController.enactCalculation(expression);
         } else{
             ComplexState complexState = complexViewModel.getState();
             String updatedExpression = complexState.getExpressionToCalculate() + command;
+
             complexViewModel.setState(new ComplexState(updatedExpression, updatedExpression, false));
         }
     }
@@ -80,9 +93,13 @@ public class CalculatorView extends JPanel implements ActionListener, PropertyCh
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         final ComplexState state = (ComplexState) evt.getNewValue();
+
         updateDisplay(state);
 
     }
+
+    // add a document listener to the input field
+
 
 
     /**
@@ -93,8 +110,10 @@ public class CalculatorView extends JPanel implements ActionListener, PropertyCh
     private void updateDisplay(ComplexState state) {
         if (state.getIsResultDisplayed()) {
             input.setText(state.getExpressionToDisplay());
-        } else if (!state.getExpressionToDisplay().isEmpty()) {
+
+        } else if (!state.getExpressionToCalculate().isEmpty()) {
             input.setText(state.getExpressionToDisplay());
+
         } else {
             input.setText("");
         }

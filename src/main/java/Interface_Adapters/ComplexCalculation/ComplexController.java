@@ -17,6 +17,7 @@ public class ComplexController {
 
     public void enactCalculation(String inputExpression){
         final ComplexInputData complexInputData = new ComplexInputData(inputExpression);
+
          complexInteractor.calculate(complexInputData);
     }
 }

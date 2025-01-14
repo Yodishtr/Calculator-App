@@ -22,6 +22,7 @@ public class ComplexInteractor implements ComplexInputBoundary {
     @Override
     public void calculate(ComplexInputData complexInputData) {
         ArrayList<String> expression = inputDataProcessor(complexInputData);
+        System.out.println(expression);
         String calculationInput = complexInputData.getCalculation();
         if (expression.get(0) == "invalid input"){
             complexOutputBoundary.prepareFailView(expression.getFirst());

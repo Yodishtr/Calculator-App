@@ -23,8 +23,7 @@ public class Expression {
      * @return a list containing the formatted expression
      */
     public ArrayList<String> reformat(String input){
-        String formattedInput = preprocessInput(input);
-        String[] splitted = formattedInput.split(" ");
+        String[] splitted = input.split(" ");
         ArrayList<String> result = new ArrayList<>();
         for (String element : splitted){
             result.add(element);
@@ -32,15 +31,6 @@ public class Expression {
         return result;
         }
 
-    /**
-     * Preprocesses the input to ensure spaces around operators for consistent splitting.
-     *
-     * @param input The raw user input.
-     * @return The preprocessed input with spaces around operators.
-     */
-    private String preprocessInput(String input) {
-        return input.replaceAll("([+\\-*/()])", " $1 ");
-    }
 
     /**
      * Validates the input for invalid characters or empty input.
@@ -61,6 +51,7 @@ public class Expression {
                 || processedExpression.get(lastElementIndex).equals("-")
                 || processedExpression.get(lastElementIndex).equals("*")
                 || processedExpression.get(lastElementIndex).equals("/")) {
+
 
             return false;
         }
