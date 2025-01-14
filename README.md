@@ -11,10 +11,11 @@ Features:
  - Basic Arithmetic Operations: Perform addition, subtraction, multiplication, and division seamlessly.
  - Real-Time Display Updates: Input and results are dynamically shown on a responsive interface.
  - User-Friendly Design: Buttons are easy to read and interact with, offering a clean, professional look.
- - Error Handling: Handles invalid inputs and division by zero with appropriate warnings.
  - Extendable Architecture: Built with clean architecture principles, making it easy to add new features.
 
 Future Features and Improvements
+ - Error Handling: Prints an error warning in the textfield.
+
  - Calculation History:
   Keep track of previous calculations with an accessible history panel.
   Allow users to reuse past results or expressions.
