@@ -6,8 +6,8 @@ import main.java.Interface_Adapters.ComplexCalculation.ComplexViewModel;
 import main.java.Interface_Adapters.ViewManagerModel;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-import javax.swing.plaf.basic.BasicOptionPaneUI;
+
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
