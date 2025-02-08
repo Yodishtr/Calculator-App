@@ -17,7 +17,7 @@ public class SimpleEquationInteractor implements SimpleEquationInputBoundary{
 
     @Override
     public void solve(SimpleEquationInputData simpleEquation){
-
+        // TODO need to find a way to solve equations
     }
 
 
