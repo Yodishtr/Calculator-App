@@ -1,9 +1,9 @@
-package main.java.View;
+package View;
 
-import main.java.Interface_Adapters.ComplexCalculation.ComplexController;
-import main.java.Interface_Adapters.ComplexCalculation.ComplexState;
-import main.java.Interface_Adapters.ComplexCalculation.ComplexViewModel;
-import main.java.Interface_Adapters.ViewManagerModel;
+import Interface_Adapters.ComplexCalculation.ComplexController;
+import Interface_Adapters.ComplexCalculation.ComplexState;
+import Interface_Adapters.ComplexCalculation.ComplexViewModel;
+import Interface_Adapters.ViewManagerModel;
 
 import javax.swing.*;
 

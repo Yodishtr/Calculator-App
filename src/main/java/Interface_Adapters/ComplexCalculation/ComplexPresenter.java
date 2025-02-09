@@ -1,8 +1,8 @@
-package main.java.Interface_Adapters.ComplexCalculation;
+package Interface_Adapters.ComplexCalculation;
 
-import main.java.Interface_Adapters.ViewManagerModel;
-import main.java.Use_Cases.ComplexInteractor.ComplexOutputBoundary;
-import main.java.Use_Cases.ComplexInteractor.ComplexOutputData;
+import Interface_Adapters.ViewManagerModel;
+import Use_Cases.ComplexInteractor.ComplexOutputBoundary;
+import Use_Cases.ComplexInteractor.ComplexOutputData;
 
 /**
  * Presenter for the complex calculation use case

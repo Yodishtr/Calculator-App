@@ -1,4 +1,4 @@
-package main.java.Data_Access;
+package Data_Access;
 
 public class VariableDataAccessObject {
 }

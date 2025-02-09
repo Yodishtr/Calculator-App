@@ -1,4 +1,4 @@
-package main.java.Use_Cases.ComplexInteractor;
+package Use_Cases.ComplexInteractor;
 
 /**
  * Data Access Interface for Complex calculation

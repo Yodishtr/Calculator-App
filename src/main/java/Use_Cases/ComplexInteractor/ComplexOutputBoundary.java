@@ -1,4 +1,4 @@
-package main.java.Use_Cases.ComplexInteractor;
+package Use_Cases.ComplexInteractor;
 
 /**
  * The output boundary for the ComplexCalculation use case

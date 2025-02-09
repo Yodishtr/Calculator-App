@@ -1,6 +1,6 @@
-package main.java.Interface_Adapters.ComplexCalculation;
+package Interface_Adapters.ComplexCalculation;
 
-import main.java.Interface_Adapters.ViewModel;
+import Interface_Adapters.ViewModel;
 
 public class ComplexViewModel extends ViewModel<ComplexState> {
 

@@ -1,4 +1,4 @@
-package main.java.Entity;
+package Entity;
 
 /**
  * An interface for operations to be performed by the calculator

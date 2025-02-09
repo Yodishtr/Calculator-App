@@ -1,4 +1,4 @@
-package main.java.Interface_Adapters;
+package Interface_Adapters;
 
 /**
  * Model for the View Manager. Its state is the name of the View which

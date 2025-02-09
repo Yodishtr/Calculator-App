@@ -1,4 +1,4 @@
-package main.java.Use_Cases.ComplexInteractor;
+package Use_Cases.ComplexInteractor;
 
 import java.math.BigDecimal;
 

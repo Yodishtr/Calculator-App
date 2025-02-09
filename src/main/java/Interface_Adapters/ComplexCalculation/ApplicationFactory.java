@@ -1,7 +1,7 @@
-package main.java.Interface_Adapters.ComplexCalculation;
+package Interface_Adapters.ComplexCalculation;
 
-import main.java.Interface_Adapters.ViewManagerModel;
-import main.java.Use_Cases.ComplexInteractor.ComplexInteractor;
+import Interface_Adapters.ViewManagerModel;
+import Use_Cases.ComplexInteractor.ComplexInteractor;
 
 public class ApplicationFactory {
     private ComplexViewModel complexViewModel;
