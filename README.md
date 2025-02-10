@@ -31,8 +31,6 @@ Offer theme persistence across sessions.
 
  
 
-Enable graphing of mathematical functions like y = sin(x) or y = x^2.
-Add zoom and pan controls for exploring graphs in detail.
 
 How to Run:
 1. Clone the repository
