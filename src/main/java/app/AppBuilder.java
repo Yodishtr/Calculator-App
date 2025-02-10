@@ -1,12 +1,12 @@
-package main.java.app;
+package app;
 
-import main.java.Interface_Adapters.ComplexCalculation.ApplicationFactory;
-import main.java.Interface_Adapters.ComplexCalculation.ComplexController;
-import main.java.Interface_Adapters.ComplexCalculation.ComplexPresenter;
-import main.java.Interface_Adapters.ComplexCalculation.ComplexViewModel;
-import main.java.Interface_Adapters.ViewManagerModel;
-import main.java.View.CalculatorView;
-import main.java.View.ViewManager;
+import Interface_Adapters.ComplexCalculation.ApplicationFactory;
+import Interface_Adapters.ComplexCalculation.ComplexController;
+
+import Interface_Adapters.ComplexCalculation.ComplexViewModel;
+import Interface_Adapters.ViewManagerModel;
+import View.CalculatorView;
+import View.ViewManager;
 
 import javax.swing.*;
 import java.awt.*;

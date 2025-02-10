@@ -1,9 +1,10 @@
-package main.java.View;
+package View;
 
-import main.java.Interface_Adapters.ComplexCalculation.ComplexController;
-import main.java.Interface_Adapters.ComplexCalculation.ComplexState;
-import main.java.Interface_Adapters.ComplexCalculation.ComplexViewModel;
-import main.java.Interface_Adapters.ViewManagerModel;
+import Data_Access.ActualGraphingService;
+import Interface_Adapters.ComplexCalculation.ComplexController;
+import Interface_Adapters.ComplexCalculation.ComplexState;
+import Interface_Adapters.ComplexCalculation.ComplexViewModel;
+import Interface_Adapters.ViewManagerModel;
 
 import javax.swing.*;
 
@@ -20,6 +21,7 @@ public class CalculatorView extends JPanel implements ActionListener, PropertyCh
     private final ComplexViewModel complexViewModel;
     private final ComplexController complexController;
     private final ViewManagerModel viewManagerModel;
+    private final ActualGraphingService actualGraphingService;
 
 
     public CalculatorView(ComplexViewModel complexViewModel, ViewManagerModel viewManagerModel,
@@ -27,11 +29,10 @@ public class CalculatorView extends JPanel implements ActionListener, PropertyCh
         this.complexViewModel = complexViewModel;
         this.viewManagerModel = viewManagerModel;
         this.complexController = complexController;
+        this.actualGraphingService = new ActualGraphingService();
 
 
         complexViewModel.addPropertyChangeListener(this);
-
-
 
 
         setLayout(new BorderLayout());
@@ -49,11 +50,11 @@ public class CalculatorView extends JPanel implements ActionListener, PropertyCh
         buttonPanel.setBackground(Color.BLACK);
 
         String[] buttons = {"7", "8", "9", " + ", "4", "5", "6", " - ", "1", "2", "3", " * ", "C", "0", "=", " / "};
-        for (String button : buttons){
+        for (String button : buttons) {
             JButton calculatorButton = new JButton(button);
 
             calculatorButton.setFont(new Font("Arial", Font.BOLD, 20));
-            calculatorButton.addActionListener(new ActionListener(){
+            calculatorButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     handleButtonPress(e);
@@ -63,7 +64,14 @@ public class CalculatorView extends JPanel implements ActionListener, PropertyCh
         }
         add(buttonPanel, BorderLayout.CENTER);
 
-
+        JPanel graphingPanel = new JPanel();
+        graphingPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        JButton graphingButton = new JButton("Graph");
+        graphingButton.setFont(new Font("Arial", Font.BOLD, 20));
+        graphingButton.setBackground(Color.LIGHT_GRAY);
+        graphingButton.addActionListener(e -> openGraphingCalculator());
+        graphingPanel.add(graphingButton);
+        add(graphingPanel, BorderLayout.SOUTH);
 
     }
 
@@ -99,6 +107,9 @@ public class CalculatorView extends JPanel implements ActionListener, PropertyCh
     }
 
     // add a document listener to the input field
+    private void openGraphingCalculator() {
+        actualGraphingService.OpenGraphingCalculator();
+    }
 
 
 

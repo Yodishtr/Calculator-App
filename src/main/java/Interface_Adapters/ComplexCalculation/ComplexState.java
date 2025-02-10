@@ -1,4 +1,4 @@
-package main.java.Interface_Adapters.ComplexCalculation;
+package Interface_Adapters.ComplexCalculation;
 
 /**
  * State for complex view model

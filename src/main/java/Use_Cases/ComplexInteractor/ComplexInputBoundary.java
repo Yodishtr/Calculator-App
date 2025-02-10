@@ -1,6 +1,6 @@
-package main.java.Use_Cases.ComplexInteractor;
+package Use_Cases.ComplexInteractor;
 
-import main.java.Entity.Numbers;
+
 
 /**
  * Input boundary for complex calculation

@@ -1,6 +1,6 @@
-package main.java.Use_Cases.ComplexInteractor;
+package Use_Cases.ComplexInteractor;
 
-import main.java.Entity.*;
+import Entity.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -25,11 +25,11 @@ public class ComplexInteractor implements ComplexInputBoundary {
         System.out.println(expression);
         String calculationInput = complexInputData.getCalculation();
         if (expression.get(0) == "invalid input"){
-            complexOutputBoundary.prepareFailView(expression.getFirst());
+            complexOutputBoundary.prepareFailView(expression.get(0));
         }
         // add an else-if statement so interactor handles literal as well.
         else if (expression.size() == 1){
-            String literalResult = expression.getFirst();
+            String literalResult = expression.get(0);
             BigDecimal numValue = new BigDecimal(literalResult);
             final ComplexOutputData outputValue = new ComplexOutputData(numValue, literalResult,
                     calculationInput, false);
@@ -50,7 +50,7 @@ public class ComplexInteractor implements ComplexInputBoundary {
             // substraction operation since lowest precedence
             performSubstraction(expression);
 
-            String calculationResult = expression.getFirst();
+            String calculationResult = expression.get(0);
             BigDecimal numericalValue = new BigDecimal(calculationResult);
             final ComplexOutputData outputData = new ComplexOutputData(numericalValue,
                     calculationResult, calculationInput, false);
