@@ -12,6 +12,7 @@ Features:
  - Real-Time Display Updates: Input and results are dynamically shown on a responsive interface.
  - User-Friendly Design: Buttons are easy to read and interact with, offering a clean, professional look.
  - Extendable Architecture: Built with clean architecture principles, making it easy to add new features.
+ - Capable of doing Graphs (uses the desmos api)
 
 Future Features and Improvements
  - Error Handling: Prints an error warning in the textfield.
@@ -28,7 +29,7 @@ Solve expressions and equations involving multiple variables.
 Add light, dark, and customizable themes for improved user experience.
 Offer theme persistence across sessions.
 
- - Graphing Functions:
+ 
 
 Enable graphing of mathematical functions like y = sin(x) or y = x^2.
 Add zoom and pan controls for exploring graphs in detail.
